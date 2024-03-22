@@ -58,5 +58,6 @@
     "nano-json",
     "edit",
     "dot-style-like key"
-  ]
+  ],
+  "license": "MIT"
 }
