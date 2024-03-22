@@ -93,7 +93,7 @@ console.log(context)// {}
 
 ## Product Closed Loop
 
-Small, single function, only do one thing - parse prompt to command-line style string
+Small, single function, only do one thing - to edit the json object in js, using the dot-style-like key as name
 
 ## Product operation and maintenance
 
