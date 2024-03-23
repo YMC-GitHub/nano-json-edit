@@ -4,7 +4,7 @@ import { getJsonContextInNs as editjson } from "./ctx";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 // - test(core): the base test env
-function sum(a, b) {
+function sum(a:number, b:number) {
   return a + b;
 }
 

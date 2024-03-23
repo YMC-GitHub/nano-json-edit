@@ -16,7 +16,7 @@ import { getJsonValueInNs } from "./alpha";
 // });
 
 // - test(core): the base test env
-function sum(a, b) {
+function sum(a:number, b:number) {
   return a + b;
 }
 

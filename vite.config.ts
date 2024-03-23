@@ -53,7 +53,7 @@ export default defineConfig({
         lib: {
             entry: [jsfileSrcDir,'main.ts'].join("/"),
             // formats: ['cjs', 'es','umd'],
-            name: 'nanoargvmock',
+            name: stdUmdName(pkg.name),
             formats: ['cjs', 'es','umd'],
             // fileName: format => format === 'es' ? '[name].mjs' : '[name].js',
             fileName: format => format === 'es' ? '[name].js' : format === 'umd' ?'[name].umd.cjs':'[name].cjs',
@@ -100,12 +100,21 @@ function generateTypes() {
 }
 
 function moveTypesToDist() {
-    const types = path.join(__dirname, tsTypeOutDir,jsfileSrcDir)
-    const dist = path.join(__dirname, jsfileOutDir)
-    // if(!fs.existsSync(types)) return
-    const files = fs.readdirSync(types).filter(n => n.endsWith('.d.ts'))
+  let types = path.join(__dirname, tsTypeOutDir,jsfileSrcDir)
+  const dist = path.join(__dirname, jsfileOutDir)
+  // use types when types/lib not exsits for file in src  disable -> types/src not exist 
+  // if(!fs.existsSync(types)) types = path.join(__dirname, tsTypeOutDir)
+  if(!fs.existsSync(types)) return
+  let files = fs.readdirSync(types).filter(n => n.endsWith('.d.ts'))
+
+  // ignore test files
+  files = files.filter(name=> !name.endsWith('.test.d.ts'))
     for (const file of files) {
         fs.copyFileSync(path.join(types, file), path.join(dist, file))
         console.log('[types]', `${tsTypeOutDir}/${file} -> ${jsfileOutDir}/${file}`)
     }
+}
+
+function stdUmdName(name:string){
+  return name.replace(/'@.*\/'/ig,'').replace(/-/ig,'')
 }
