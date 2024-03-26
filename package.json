@@ -1,7 +1,7 @@
 {
   "name": "nano-json-edit",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a library package to edit the json object in js, using the dot-style-like key as name",
   "author": "yemiancheng <ymc.github@gmail.com> (https://github.com/ymc-github)",
   "homepage": "https://github.com/ymc-github/nano-json-edit#readme",
