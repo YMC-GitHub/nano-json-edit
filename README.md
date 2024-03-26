@@ -4,12 +4,12 @@ a library package to edit the json object in js, using the dot-style-like key as
 
 file | size | gzip | brotli
 :---- | :---- | :---- | :----
-dist/main.cjs | 2.34kb | 0.96kb | 0.84kb
-dist/main.js | 2.26kb | 0.90kb | 0.79kb
+dist/main.cjs | 2.33kb | 0.95kb | 0.83kb
+dist/main.js | 2.25kb | 0.90kb | 0.79kb
 dist/main.min.cjs | 1.48kb | 0.76kb | 0.65kb
-dist/main.min.js | 1.41kb | 0.71kb | 0.64kb
-dist/main.umd.cjs | 2.81kb | 1.10kb | 0.95kb
-dist/main.umd.min.cjs | 1.49kb | 0.78kb | 0.68kb
+dist/main.min.js | 1.40kb | 0.71kb | 0.63kb
+dist/main.umd.cjs | 2.80kb | 1.09kb | 0.95kb
+dist/main.umd.min.cjs | 1.49kb | 0.78kb | 0.67kb
 
 ## Background
 
@@ -34,8 +34,11 @@ Here is to extract one of its core functions so that it supports references in a
 - You can import directly via npm cdn
 ```html
 <!-- unpkg.com/:package@:version/:file -->
-<!-- unpkg.com/nano-json-edit@1.0.0/dist/main.js -->
+<script src="https://unpkg.com/nano-json-edit@1.0.0/dist/main.js"></script>
+
 <!-- jsdelivr -->
+<script src="https://cdn.jsdelivr.net/npm/nano-json-edit@1.0.0/dist/main.js"></script>
+
 <!-- unpkg.zhimg.com -->
 ```
 
@@ -75,7 +78,7 @@ console.log(lastns)// CN
 
 key = 'names[zero].CN'; root = {};
 // it will auomatically ini ctx if it's ctx undefined
-let { context, lastns } = editjson(key, root, '.', -1)
+({ context, lastns } = editjson(key, root, '.', -1));
 console.log(root)// {"names":{"zero":{}}}
 console.log(context)// {}
 console.log(lastns)// CN
